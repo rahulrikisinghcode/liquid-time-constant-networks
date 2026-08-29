@@ -16,6 +16,12 @@ pp. 7657-7666. Defaults follow the LTNN configuration in Section IV-B of
 "AudioFacialMatrix: Dataset for Voice and Face AI" (Singh and Singh): a 128-unit
 recurrent layer into a fully connected head.
 
+This is the standalone, general-purpose version of the library. A copy also lives
+inside [afm-cross-modal-clustering](https://github.com/rahulrikisinghcode/afm-cross-modal-clustering)
+(as `ltnn`, alongside the AFM clustering code and preprocessing utilities), so the
+full AudioFacialMatrix Section IV is in one place; this repo stays up separately
+since it's useful on its own, not tied to AFM.
+
 ## The dynamics
 
 ```
