@@ -173,6 +173,16 @@ specific and wrapping them here would only get in the way.
 }
 ```
 
+The 128-unit / MFCC configuration this repo defaults to follows Section IV-B of:
+
+```bibtex
+@misc{singh_afm,
+  author = {Singh, Rahul and Singh, Rita},
+  title  = {AudioFacialMatrix: Dataset for Voice and Face AI},
+  note   = {Carnegie Mellon University, Language Technologies Institute}
+}
+```
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
