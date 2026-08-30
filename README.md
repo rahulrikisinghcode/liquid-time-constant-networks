@@ -158,6 +158,32 @@ Four points of accuracy at two thirds of the parameters, on one small synthetic 
 on CPU with a single seed. That is a demonstration of the mechanism, not a benchmark
 result, and it should not be cited as one.
 
+## What the numbers above actually look like
+
+![LTC vs GRU accuracy curves from a live run of the benchmark, a histogram of what each of the 32 units learned as its effective tau, and an MFCC gain-invariance comparison](docs/img/ltc_overview.png)
+
+All three panels come from actually running this repository's code, not from
+numbers typed into a plotting script; see `scripts/render_visuals.py`.
+
+Left: the same benchmark as above, but as training curves instead of a final
+number, so the gap is visible across training rather than just at epoch 25.
+Middle: `effective_tau_bounds()` read out per unit after training, not just
+the min/median/max summary `timescale_report()` prints. A spread this wide
+across 32 units is what "specialised to different rates" in the Benchmark
+section above actually means, made visible. Right: the same synthetic clip
+run through `mfcc()` at full volume and at 1/400th the amplitude, overlaid.
+The two lines sit on top of each other; the max difference across the whole
+clip is on the order of 1e-14, floating-point noise, not a real difference.
+This is `test_mfcc_is_invariant_to_recording_level` made visible rather than
+just asserted.
+
+Regenerate with:
+
+```bash
+pip install matplotlib
+PYTHONPATH=src:examples python scripts/render_visuals.py
+```
+
 ## Scope
 
 This is the cell, the encoder, the classifier head and the feature front end. There

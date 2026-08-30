@@ -60,7 +60,10 @@ class GRUBaseline(nn.Module):
         return self.head(self.rnn(torch.cat([x, delta_t[..., None]], dim=-1))[0][:, -1])
 
 
-def run(model, train, test, tag: str) -> float:
+def run(model, train, test, tag: str, history: list | None = None) -> float:
+    """Train and return final test accuracy. If `history` is given, appends
+    (epoch, test_acc) to it every 5 epochs -- used by scripts/render_visuals.py
+    to plot real training curves; unused by the default CLI run."""
     x, dt, y = train
     xt, dtt, yt = test
     opt = torch.optim.Adam(model.parameters(), lr=1e-2)
@@ -81,6 +84,8 @@ def run(model, train, test, tag: str) -> float:
             with torch.no_grad():
                 acc = (model(xt, dtt).argmax(-1) == yt).float().mean().item()
             print(f"  {tag}  epoch {epoch + 1:>3}  test acc {acc:.3f}")
+            if history is not None:
+                history.append((epoch + 1, acc))
 
     model.eval()
     with torch.no_grad():
