@@ -150,13 +150,13 @@ with their spacing are not. The GRU baseline gets `delta_t` as an extra input
 channel, which is the usual workaround and the fair comparison.
 
 ```
-final: LTC 0.743 (2340 params)   GRU 0.702 (3588 params)
+final: LTC 0.743 (2340 params)   GRU 0.728 (3588 params)
 learned timescales: min 7.501, median 7.948, max 8.323, spread 0.821
 ```
 
-Four points of accuracy at two thirds of the parameters, on one small synthetic task
-on CPU with a single seed. That is a demonstration of the mechanism, not a benchmark
-result, and it should not be cited as one.
+Both numbers come from the script above, run with its fixed seed. On one small
+synthetic task on CPU with a single seed, that is a demonstration of the mechanism,
+not a benchmark result, and it should not be cited as one.
 
 ## What the numbers above actually look like
 
@@ -180,7 +180,7 @@ just asserted.
 Regenerate with:
 
 ```bash
-pip install matplotlib
+pip install -e ".[viz]"
 PYTHONPATH=src:examples python scripts/render_visuals.py
 ```
 
