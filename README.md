@@ -17,10 +17,10 @@ pp. 7657-7666. Defaults follow the LTNN configuration in Section IV-B of
 recurrent layer into a fully connected head.
 
 This is the standalone, general-purpose version of the library. A copy also lives
-inside [afm-cross-modal-clustering](https://github.com/rahulrikisinghcode/afm-cross-modal-clustering)
-(as `ltnn`, alongside the AFM clustering code and preprocessing utilities), so the
-full AudioFacialMatrix Section IV is in one place; this repo stays up separately
-since it's useful on its own, not tied to AFM.
+inside [AudioFacialMatrix](https://github.com/rahulrikisinghcode/AudioFacialMatrix)
+(as `ltnn`, alongside the AFM clustering code and preprocessing utilities), so that
+the full AudioFacialMatrix Section IV sits in one place. This repo is the version
+to use if you want the model without the AFM experiments around it.
 
 ## The dynamics
 
